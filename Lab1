@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int tid = 0, gasa;
+    float hojd = 250, hast = -25, g = 1.5, verk = 0.1, n;
+
+    printf("Lunar decent challenge!\n");
+    printf("You will pilot a lunar decent the last 250m.\n");
+    printf("Each turn represent 1-second decent time.\n");
+    printf("Set the throttle for each turn (0-100)\n");
+    printf("Time Height Velocity Throttle?\n");
+
+    while (hojd > 0)
+    {
+        printf("Tid:%d\t Hastighet:%.0f\t hojd:%.0f\n", tid, hast, hojd);
+        printf("ange en bromskraft:");
+        scanf("%d",&gasa);
+        n = gasa*verk-g;
+        hast = hast + n;
+        hojd = hojd + hast - n/2;
+        tid = tid + 1;
+    }
+    if (hast > -2)
+    {
+        printf("Vi har landat med hastigheten: %.0f",hast);
+    }
+    else 
+    {
+        printf("Vi har kraschat, med en hastighet pa %.0f",hast);
+    }
+}
